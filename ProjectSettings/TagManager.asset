@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - BackGround2
+  - BackGround1
+  - BackGround3
+  - BackGround4
+  - BackGround5
+  - BackGroundDeco1
   layers:
   - Default
   - TransparentFX
@@ -40,4 +47,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround2
+    uniqueID: 3982980927
+    locked: 0
+  - name: BackGround5
+    uniqueID: 1339298019
     locked: 0
