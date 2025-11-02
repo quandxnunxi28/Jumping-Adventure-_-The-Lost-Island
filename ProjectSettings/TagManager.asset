@@ -11,6 +11,7 @@ TagManager:
   - BackGround4
   - BackGround5
   - BackGroundDeco1
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Playerr
   - 
   - 
   - 

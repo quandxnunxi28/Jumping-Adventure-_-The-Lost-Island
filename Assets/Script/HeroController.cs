@@ -13,12 +13,20 @@ public class HeroController : MonoBehaviour
     private Animator myAnim;
     private bool grounded = true;
     bool facingRight;
+    float moveDistance = 2f; // khoảng cách bạn muốn
+
+    //bo sung cac bien thuc hien hoat dong ban dan
+    public Transform gunTip;
+    public GameObject bullet;
+    float fireRate = 0.5f;
+    float nextFire = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
-        facingRight = true; 
+        facingRight = true;
     }
 
     // Update is called once per frame
@@ -40,25 +48,47 @@ public class HeroController : MonoBehaviour
         myAnim.SetFloat("Speed", Mathf.Abs(move));
 
         //nhảy
-        if(Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             grounded = false;
             myBody.velocity = new Vector2(myBody.velocity.x, jumpForce);
-            
+
             myAnim.SetBool("isJump", true);
         }
-        
+
 
         // tấn công 
 
         attack();
         if (Input.GetKeyDown(KeyCode.H))
         {
-            myAnim.SetTrigger("isHurt");
+            myAnim.SetTrigger("isDeath");
         }
 
-      
-}
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate; //xac dinh tgian tiep thieo vien dan duoc ban ra
+                if (facingRight)
+                {
+                    //ban ra vien dan
+                    Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                }
+                else
+                {
+                    if (!facingRight)
+                    {
+                        Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                    }
+                }
+            }
+        }
+
+
+
+    }
+
     private void attack()
     {
         if (Input.GetKeyDown(KeyCode.J))
@@ -81,6 +111,7 @@ public class HeroController : MonoBehaviour
         {
             grounded = true;
             myAnim.SetBool("isJump", false);
+           
         }
     }
 }

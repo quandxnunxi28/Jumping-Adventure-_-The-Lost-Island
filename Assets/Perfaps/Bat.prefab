@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 2144221719325544870}
   - component: {fileID: 1936567688869007726}
   - component: {fileID: 7577724062800497088}
+  - component: {fileID: -641385578407580518}
+  - component: {fileID: 5611280102792367930}
+  - component: {fileID: -4432925697447129258}
+  - component: {fileID: 8283055743211520186}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -106,3 +110,93 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-641385578407580518
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953101092743739766}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &5611280102792367930
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953101092743739766}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.4, y: 6.4}
+    newSize: {x: 6.4, y: 6.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.2, y: 1}
+      - {x: -1.9, y: 0.4}
+      - {x: -1.9, y: 0}
+      - {x: -1.8000001, y: -0.1}
+      - {x: -0.3, y: -1}
+      - {x: 0.4, y: -1}
+      - {x: 1.8000001, y: -0.2}
+      - {x: 1.9, y: 0}
+      - {x: 1.9, y: 0.4}
+      - {x: 1, y: 1}
+--- !u!114 &-4432925697447129258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953101092743739766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3afc160db1e268a4bba7d6eea9c19402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolSpeed: 2
+  chaseSpeed: 3
+  detectRange: 5
+  attackRange: 1
+  player: {fileID: 5504239485585390891, guid: d48eea09f9d820f438732f080c43f703, type: 3}
+  flipCooldown: 0.2
+  stopDistance: 0.5
+--- !u!114 &8283055743211520186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953101092743739766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb90c8e85922c964e9f37905e49e239d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  deathEffect: {fileID: 4953063644957066947, guid: db11d31caec00314082c99425860815a, type: 3}
+  isInvulnerable: 0
