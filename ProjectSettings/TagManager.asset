@@ -15,10 +15,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -53,4 +53,10 @@ TagManager:
     locked: 0
   - name: BackGround5
     uniqueID: 1339298019
+    locked: 0
+  - name: Player
+    uniqueID: 2635374863
+    locked: 0
+  - name: Enemy
+    uniqueID: 3402223909
     locked: 0
