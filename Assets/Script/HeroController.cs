@@ -21,17 +21,34 @@ public class HeroController : MonoBehaviour
     float fireRate = 0.5f;
     float nextFire = 1f;
 
+    // Audio
+    public AudioClip jumpSound;
+    public AudioClip runSound;
+    public AudioClip attackSound;
+    private AudioSource audioSource;
+
+    private bool isRunning = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogWarning("AudioSource chưa được gắn trên Heka! Script sẽ thêm tự động.");
+            audioSource = gameObject.AddComponent<AudioSource>(); // tự thêm component
+        }
         facingRight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //di chuyển
         float move = Input.GetAxis("Horizontal");
         myBody.velocity = new Vector2(move * maxSpeed, myBody.velocity.y);
@@ -48,13 +65,43 @@ public class HeroController : MonoBehaviour
         myAnim.SetFloat("Speed", Mathf.Abs(move));
 
         //nhảy
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+
+
+        if (move != 0 && grounded)
+        {
+            if (!isRunning)
+            {
+                // Start run sound
+                audioSource.clip = runSound;
+                audioSource.loop = true;
+                audioSource.Play();
+                isRunning = true;
+            }
+        }
+        else
+        {
+            if (isRunning)
+            {
+                // Dừng run sound
+                audioSource.Stop();
+                isRunning = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.W) && grounded)
         {
             grounded = false;
             myBody.velocity = new Vector2(myBody.velocity.x, jumpForce);
 
             myAnim.SetBool("isJump", true);
+
+            if (jumpSound != null) 
+            {
+                StartCoroutine(PlayJumpSoundWithDelay(0.2f));
+                audioSource.PlayOneShot(jumpSound);
+            }
+                
         }
+
 
 
         // tấn công 
@@ -94,8 +141,15 @@ public class HeroController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             myAnim.SetTrigger("isAttack");
-
+            StartCoroutine(PlayJumpSoundWithDelay(0.3f));
+                audioSource.PlayOneShot(attackSound);
         }
+    }
+
+    IEnumerator PlayJumpSoundWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioSource.PlayOneShot(jumpSound);
     }
     private void flip()
     {

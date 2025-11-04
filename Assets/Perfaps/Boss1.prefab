@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5162c4e8e424f62428f67acd01c6254c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5504239485585390891, guid: d48eea09f9d820f438732f080c43f703, type: 3}
+  player: {fileID: 0}
   isFlipped: 0
 --- !u!114 &906734775031237287
 MonoBehaviour:
@@ -243,9 +243,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ab8e5375af7a9409b6785bb55eb064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 500
   health: 500
   deathEffect: {fileID: 8944022434018380155, guid: 341dff704c2e1b542970f3d404ed1328, type: 3}
   isInvulnerable: 0
+  door: {fileID: 4486912122487657306, guid: 3cb7e7a500200f6479e934554035400e, type: 3}
+  healthBar: {fileID: 0}
 --- !u!114 &7044642448879136654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 20
   enragedAttackDamage: 40
-  attackOffset: {x: 0, y: 0, z: 0}
+  attackOffset: {x: -5, y: -4, z: 0}
   attackRange: 5
   attackMask:
     serializedVersion: 2

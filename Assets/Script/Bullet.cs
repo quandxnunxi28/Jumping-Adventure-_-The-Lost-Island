@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +11,17 @@ public class Bullet : MonoBehaviour
     public GameObject impactEffect;
 
     private Rigidbody2D myBody;
+    public AudioClip kameSound;
+    private AudioSource audioSource;
     // Use this for initialization
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>(); // tự thêm component
+        }
+        audioSource.PlayOneShot(kameSound);
         myBody = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
     }

@@ -7,7 +7,6 @@ public class EnemyAI : MonoBehaviour
     public float patrolSpeed = 2f;// tốc độ đi tuần
     public float chaseSpeed = 7f;// tốc độ đuổi theo player
     public float detectRange = 5f;// phạm vi phát hiện player   
-    public float attackRange = 2f;// phạm vi tấn công
     public Transform player;
 
     private Vector2 leftLimit;
@@ -23,6 +22,11 @@ public class EnemyAI : MonoBehaviour
     private float epsilon = 0.05f;
 
     public float stopDistance = 0.5f;
+
+    public int attackDamage = 5;
+    public Vector3 attackOffset;
+    public float attackRange = 2f;
+    public LayerMask attackMask;
     void Start()
     {
         if (player == null)
@@ -44,11 +48,11 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer <= attackRange)
         {
             AttackPlayer();
+
             Debug.Log("attack" + player);
         }
         else if (distanceToPlayer <= detectRange)
         {
-            animator.SetBool("isAttack", false);
             ChasePlayer();
             
             Debug.Log("chase" + player +"with speed" + chaseSpeed);
@@ -113,9 +117,22 @@ public class EnemyAI : MonoBehaviour
     void AttackPlayer()
     { 
         rb.velocity = Vector2.zero;
+
         animator.SetBool("isMoving", false);
         animator.SetTrigger("attack");
        
+    }
+    public void Attack()
+    {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+
+        Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
+        if (colInfo != null)
+        {
+            colInfo.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+        }
     }
 
     void FlipDirection()

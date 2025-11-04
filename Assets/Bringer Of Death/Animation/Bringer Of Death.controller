@@ -404,6 +404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 9
   attackRange: 3
+  positionBossMin: 186.2465
+  positionBossMax: 238.8888
 --- !u!1102 &5360324063918002377
 AnimatorState:
   serializedVersion: 6
