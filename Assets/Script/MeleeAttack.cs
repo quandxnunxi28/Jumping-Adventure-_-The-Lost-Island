@@ -7,7 +7,7 @@ public class MeleeAttack : MonoBehaviour
     public Transform attackPoint;      // điểm tấn công (đặt trước mặt player)
     public float attackRange = 0.5f;   // phạm vi đánh
     public int attackDamage = 20;      // sát thương
-    public float attackRate = 2f;      // số lần đánh mỗi giây
+    public float attackRate = 5f;      // số lần đánh mỗi giây
     float nextAttackTime = 0f;
 
     public LayerMask enemyLayers;      // layer enemy

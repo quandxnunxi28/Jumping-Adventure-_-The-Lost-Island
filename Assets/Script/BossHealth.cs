@@ -13,6 +13,8 @@ public class BossHealth : MonoBehaviour
 
     // 🔹 Tham chiếu đến script thanh máu (gắn trên UI)
     public BossHealthBar healthBar;
+    private Animator myAnim;
+    private bool isHurt =false;
 
     void Start()
     {
@@ -24,13 +26,16 @@ public class BossHealth : MonoBehaviour
 
             healthBar.Hide();
             healthBar.SetMaxHealth(maxHealth);
+            myAnim = GetComponent<Animator>();
         }
     }
 
     public void TakeDamage(int damage)
     {
+        isHurt = true;
         if (isInvulnerable)
             return;
+        myAnim.SetBool("Hurt", true);
 
         health -= damage;
         // Cập nhật thanh máu UI
@@ -44,7 +49,10 @@ public class BossHealth : MonoBehaviour
         {
             Die();
         }
+    
+
     }
+
 
     void Die()
     {

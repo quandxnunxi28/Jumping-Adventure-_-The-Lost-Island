@@ -96,10 +96,10 @@ TextureImporter:
       name: Golem_1_walk_0
       rect:
         serializedVersion: 2
-        x: 29
+        x: 0
         y: 0
-        width: 31
-        height: 38
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,10 +117,10 @@ TextureImporter:
       name: Golem_1_walk_1
       rect:
         serializedVersion: 2
-        x: 119
+        x: 90
         y: 0
-        width: 32
-        height: 37
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,10 +138,10 @@ TextureImporter:
       name: Golem_1_walk_2
       rect:
         serializedVersion: 2
-        x: 209
+        x: 180
         y: 0
-        width: 34
-        height: 39
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: Golem_1_walk_3
       rect:
         serializedVersion: 2
-        x: 298
+        x: 270
         y: 0
-        width: 35
-        height: 40
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +180,10 @@ TextureImporter:
       name: Golem_1_walk_4
       rect:
         serializedVersion: 2
-        x: 385
+        x: 360
         y: 0
-        width: 39
-        height: 39
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: Golem_1_walk_5
       rect:
         serializedVersion: 2
-        x: 474
+        x: 450
         y: 0
-        width: 42
-        height: 38
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +222,10 @@ TextureImporter:
       name: Golem_1_walk_6
       rect:
         serializedVersion: 2
-        x: 567
+        x: 540
         y: 0
-        width: 38
-        height: 37
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,10 +243,10 @@ TextureImporter:
       name: Golem_1_walk_7
       rect:
         serializedVersion: 2
-        x: 658
+        x: 630
         y: 0
-        width: 36
-        height: 39
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +264,10 @@ TextureImporter:
       name: Golem_1_walk_8
       rect:
         serializedVersion: 2
-        x: 749
+        x: 720
         y: 0
-        width: 33
-        height: 40
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: Golem_1_walk_9
       rect:
         serializedVersion: 2
-        x: 839
+        x: 810
         y: 0
-        width: 32
-        height: 39
+        width: 90
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

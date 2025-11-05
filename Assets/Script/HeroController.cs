@@ -18,7 +18,7 @@ public class HeroController : MonoBehaviour
     //bo sung cac bien thuc hien hoat dong ban dan
     public Transform gunTip;
     public GameObject bullet;
-    float fireRate = 0.5f;
+    float fireRate = 5f;
     float nextFire = 1f;
 
     // Audio

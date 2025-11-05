@@ -45,7 +45,7 @@ public class EnemyAI : MonoBehaviour
       
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= attackRange)
+        if (distanceToPlayer < attackRange)
         {
             AttackPlayer();
 

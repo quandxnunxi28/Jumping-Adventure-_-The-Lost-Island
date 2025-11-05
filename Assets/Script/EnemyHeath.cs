@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyHeath : MonoBehaviour
@@ -12,6 +13,7 @@ public class EnemyHeath : MonoBehaviour
 
     public GameObject itemPrefab; // Prefab của vật phẩm
     public float dropChance = 0.5f; // 50% tỉ lệ
+    public GameObject damPopUp;
 
     // Gọi khi quái chết
     public void DropItem()
@@ -49,6 +51,16 @@ public class EnemyHeath : MonoBehaviour
 
         health -= damage;
         if (health < 0) health = 0;
+
+        if (damPopUp != null)
+        {
+            GameObject instance = Instantiate(damPopUp, transform.position
+                    + new Vector3(UnityEngine.Random.Range(-0.3f, 0.3f), 0.5f, 0), Quaternion.identity);
+            instance.GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
+            Animator animator = instance.GetComponentInChildren<Animator>();
+            if (damage <= 0) animator.Play("normal");
+            else animator.Play("critical");
+        }
 
         // 🔹 Cập nhật thanh máu sau khi nhận damage
         if (healthBar != null)
