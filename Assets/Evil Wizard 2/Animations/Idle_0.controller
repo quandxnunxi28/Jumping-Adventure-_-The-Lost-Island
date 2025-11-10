@@ -98,7 +98,7 @@ MonoBehaviour:
   speed: 2.5
   attackRange: 3
   positionBossMin: 119.7218
-  positionBossMax: 135.2823
+  positionBossMax: 157.5876
 --- !u!1101 &3082382585553762690
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

@@ -12,6 +12,8 @@ TagManager:
   - BackGround5
   - BackGroundDeco1
   - enemy
+  - item2
+  - vuc
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Enemy
   - Player
   - Playerr
-  - 
+  - CuiBap
   - 
   - 
   - 

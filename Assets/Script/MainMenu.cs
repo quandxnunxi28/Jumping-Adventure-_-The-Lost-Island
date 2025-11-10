@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenOptions()
     {
-        Debug.Log("Options clicked!");
+        SceneManager.LoadScene("Huongdan");
     }
 
     public void ExitGame()

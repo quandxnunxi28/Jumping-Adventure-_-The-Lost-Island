@@ -46,6 +46,22 @@ public class Bullet : MonoBehaviour
     {
         BossHealth boss = hitInfo.GetComponent<BossHealth>();
         EnemyHeath enemy = hitInfo.GetComponent<EnemyHeath>();
+        Boss3_Health boss3 = hitInfo.GetComponent<Boss3_Health>();
+
+        if (hitInfo.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+
+
+            if (boss3 != null)
+        {
+            boss3.TakeDamage(damage);
+            Debug.Log(boss3.health.ToString());
+            Destroy(gameObject);
+            Instantiate(impactEffect, transform.position, transform.rotation);
+        }
+
 
         if (boss != null)
         {

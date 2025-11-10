@@ -13,6 +13,7 @@ public class MeleeAttack : MonoBehaviour
     float nextAttackTime = 0f;
 
     public LayerMask enemyLayers;      // layer enemy
+    public LayerMask CuiBapLayers;
 
     Animator anim;
     HeroController hero;               // để biết trái-phải
@@ -49,7 +50,23 @@ public class MeleeAttack : MonoBehaviour
             // Gọi hàm trừ máu
             enemy.GetComponent<EnemyHeath>()?.TakeDamage(randomDamage);
             enemy.GetComponent<BossHealth>()?.TakeDamage(randomDamage);
+            enemy.GetComponent<Boss3_Health>()?.TakeDamage(randomDamage);
+
         }
+        if (CuiBapLayers != null)
+        {
+
+            Collider2D[] hitCuiBap = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, CuiBapLayers);
+            foreach (Collider2D enemy in hitCuiBap)
+            {
+                // Gọi hàm trừ máu
+                enemy.GetComponent<EnemyHeath>()?.TakeDamage(randomDamage);
+                enemy.GetComponent<BossHealth>()?.TakeDamage(randomDamage);
+                enemy.GetComponent<Boss3_Health>()?.TakeDamage(randomDamage);
+
+            }
+        }
+
     }
 
     // để vẽ phạm vi trong Scene
