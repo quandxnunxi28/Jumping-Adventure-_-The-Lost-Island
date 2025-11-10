@@ -14,6 +14,8 @@ public class EnemyHeath : MonoBehaviour
     public GameObject itemPrefab; // Prefab của vật phẩm
     public float dropChance = 0.5f; // 50% tỉ lệ
     public GameObject damPopUp;
+    public float hurtFlashTime = 0.15f;
+    private SpriteRenderer spriteRenderer;
 
     // Gọi khi quái chết
     public void DropItem()
@@ -38,10 +40,26 @@ public class EnemyHeath : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-
         // Cập nhật thanh máu ngay khi bắt đầu
         if (healthBar != null)
             healthBar.SetHealth(health, maxHealth);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+    }
+
+    IEnumerator HurtEffect()
+    {
+        if (spriteRenderer != null)
+        {
+            // Đổi màu sang đỏ
+            spriteRenderer.color = Color.red;
+
+            // Giữ 0.15s rồi trở lại bình thường
+            yield return new WaitForSeconds(hurtFlashTime);
+
+            spriteRenderer.color = Color.white;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -51,6 +69,8 @@ public class EnemyHeath : MonoBehaviour
 
         health -= damage;
         if (health < 0) health = 0;
+        StartCoroutine(HurtEffect());
+
 
         if (damPopUp != null)
         {

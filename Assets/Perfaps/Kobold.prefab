@@ -152,12 +152,12 @@ MonoBehaviour:
   patrolSpeed: 2
   chaseSpeed: 3
   detectRange: 5
-  player: {fileID: 5504239485585390891, guid: d48eea09f9d820f438732f080c43f703, type: 3}
+  player: {fileID: 0}
   flipCooldown: 0.2
   stopDistance: 0.5
   attackDamage: 5
   attackOffset: {x: 0, y: 0, z: 0}
-  attackRange: 1
+  attackRange: 3
   attackMask:
     serializedVersion: 2
     m_Bits: 128
@@ -196,11 +196,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   health: 200
-  deathEffect: {fileID: 5848860815051960632}
+  deathEffect: {fileID: 0}
   isInvulnerable: 0
   itemPrefab: {fileID: 6050168024944982292, guid: 2c4edf7ce2b5fdc44b8a1621eae8f8d5, type: 3}
   dropChance: 0.5
   damPopUp: {fileID: 3890343362428162250, guid: 11ce976c4fd0b0d4eb0e804c1750e10b, type: 3}
+  hurtFlashTime: 0.15
   healthBar: {fileID: 9218854202425838773}
 --- !u!1001 &108944303
 PrefabInstance:

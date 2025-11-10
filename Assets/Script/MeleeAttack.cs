@@ -6,8 +6,10 @@ public class MeleeAttack : MonoBehaviour
 {
     public Transform attackPoint;      // điểm tấn công (đặt trước mặt player)
     public float attackRange = 0.5f;   // phạm vi đánh
-    public int attackDamage = 20;      // sát thương
+    public int minAttackDamage = 15;   // sát thương nhỏ nhất
+    public int maxAttackDamage = 25;   // sát thương lớn nhất
     public float attackRate = 5f;      // số lần đánh mỗi giây
+
     float nextAttackTime = 0f;
 
     public LayerMask enemyLayers;      // layer enemy
@@ -37,15 +39,16 @@ public class MeleeAttack : MonoBehaviour
     {
         // bật animation
         anim.SetTrigger("isAttack");
-
+        int randomDamage = Random.Range(minAttackDamage, maxAttackDamage + 1);
+        Debug.Log(randomDamage);
         // lấy danh sách kẻ địch trong phạm vi
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             // Gọi hàm trừ máu
-            enemy.GetComponent<EnemyHeath>()?.TakeDamage(attackDamage);
-            enemy.GetComponent<BossHealth>()?.TakeDamage(attackDamage);
+            enemy.GetComponent<EnemyHeath>()?.TakeDamage(randomDamage);
+            enemy.GetComponent<BossHealth>()?.TakeDamage(randomDamage);
         }
     }
 

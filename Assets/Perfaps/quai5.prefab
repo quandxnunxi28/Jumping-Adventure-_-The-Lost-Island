@@ -213,6 +213,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 6050168024944982292, guid: 2c4edf7ce2b5fdc44b8a1621eae8f8d5, type: 3}
   dropChance: 0.5
   damPopUp: {fileID: 3890343362428162250, guid: 11ce976c4fd0b0d4eb0e804c1750e10b, type: 3}
+  hurtFlashTime: 0.15
   healthBar: {fileID: 9218854203550354564}
 --- !u!1001 &1131912094
 PrefabInstance:

@@ -189,7 +189,7 @@ MonoBehaviour:
   stopDistance: 0.5
   attackDamage: 5
   attackOffset: {x: 0, y: 0, z: 0}
-  attackRange: 2
+  attackRange: 4
   attackMask:
     serializedVersion: 2
     m_Bits: 128
@@ -212,6 +212,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 6050168024944982292, guid: 2c4edf7ce2b5fdc44b8a1621eae8f8d5, type: 3}
   dropChance: 0.5
   damPopUp: {fileID: 3890343362428162250, guid: 11ce976c4fd0b0d4eb0e804c1750e10b, type: 3}
+  hurtFlashTime: 0.15
   healthBar: {fileID: 633418473422814323}
 --- !u!1001 &8585454852715490153
 PrefabInstance:

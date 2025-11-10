@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
@@ -14,6 +15,10 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip hurtSound;
     private AudioSource audioSource;
 
+    private SpriteRenderer spriteRenderer;
+    public float hurtFlashTime = 0.15f;
+
+
     private void Start()
     {
         myAnim = GetComponent<Animator>();
@@ -25,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         health = maxHealth;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (healthBar != null)
             healthBar.SetMaxHealth(maxHealth);
@@ -37,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
         audioSource.clip = hurtSound;
         audioSource.Play();
         myAnim.SetTrigger("isHurt");
+        StartCoroutine(HurtEffect());
 
         // 🔹 Cập nhật thanh máu
         if (healthBar != null)
@@ -48,6 +55,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    IEnumerator HurtEffect()
+    {
+        if (spriteRenderer != null)
+        {
+            // Đổi màu sang đỏ
+            spriteRenderer.color = Color.red;
+
+            // Giữ 0.15s rồi trở lại bình thường
+            yield return new WaitForSeconds(hurtFlashTime);
+
+            spriteRenderer.color = Color.white;
+        }
+    }
     void Die()
     {
         if (deathEffect != null)
@@ -57,10 +77,10 @@ public class PlayerHealth : MonoBehaviour
     
     
         Time.timeScale = 1f; // reset time
-        SceneManager.LoadScene("MainMenu"); // trỏ đúng tên scene
-    
-    // Hoặc có thể load lại scene nếu muốn:
-    // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene("MainMenu"); // trỏ đúng tên scene
+
+        // Hoặc có thể load lại scene nếu muốn:
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }
 
     

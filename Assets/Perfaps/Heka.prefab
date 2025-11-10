@@ -128,7 +128,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 7
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69e8dffb4ebdd1543b6cfad22e7bfafe, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -169,6 +169,7 @@ MonoBehaviour:
   deathEffect: {fileID: 0}
   healthBar: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: 284fa4ac80071184f84ed6e92468962c, type: 3}
+  hurtFlashTime: 0.15
 --- !u!60 &3731842541672991881
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -217,8 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 4225529286893319543}
   attackRange: 0.5
-  attackDamage: 20
-  attackRate: 2
+  minAttackDamage: 15
+  maxAttackDamage: 25
+  attackRate: 3
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64

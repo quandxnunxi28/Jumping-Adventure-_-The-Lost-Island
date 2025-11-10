@@ -13,8 +13,10 @@ public class BossHealth : MonoBehaviour
 
     // 🔹 Tham chiếu đến script thanh máu (gắn trên UI)
     public BossHealthBar healthBar;
-    private Animator myAnim;
-    private bool isHurt =false;
+
+    private SpriteRenderer spriteRenderer;
+    public float hurtFlashTime = 0.15f;
+
 
     void Start()
     {
@@ -23,19 +25,19 @@ public class BossHealth : MonoBehaviour
         // Hiển thị thanh máu và đặt giá trị ban đầu
         if (healthBar != null)
         {
+            spriteRenderer = GetComponent<SpriteRenderer>();
 
             healthBar.Hide();
             healthBar.SetMaxHealth(maxHealth);
-            myAnim = GetComponent<Animator>();
         }
     }
 
     public void TakeDamage(int damage)
     {
-        isHurt = true;
         if (isInvulnerable)
             return;
-       
+
+        StartCoroutine(HurtEffect());
 
         health -= damage;
         // Cập nhật thanh máu UI
@@ -51,6 +53,20 @@ public class BossHealth : MonoBehaviour
         }
     
 
+    }
+
+    IEnumerator HurtEffect()
+    {
+        if (spriteRenderer != null)
+        {
+            // Đổi màu sang đỏ
+            spriteRenderer.color = Color.red;
+
+            // Giữ 0.15s rồi trở lại bình thường
+            yield return new WaitForSeconds(hurtFlashTime);
+
+            spriteRenderer.color = Color.white;
+        }
     }
 
 

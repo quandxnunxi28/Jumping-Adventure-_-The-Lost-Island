@@ -107,11 +107,11 @@ public class EnemyAI : MonoBehaviour
                 Patrol();
             }
         }
-        else
-        {
-            // Đã gần đủ (nhưng Update sẽ gọi AttackPlayer) -> tạm thời giữ tốc độ 0
-            rb.velocity = Vector2.zero;
-        }
+        //else
+        //{
+        //    // Đã gần đủ (nhưng Update sẽ gọi AttackPlayer) -> tạm thời giữ tốc độ 0
+        //    rb.velocity = Vector2.zero;
+        //}
     }
 
     void AttackPlayer()
