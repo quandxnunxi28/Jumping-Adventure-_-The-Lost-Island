@@ -35,7 +35,7 @@ public class BossHealth : MonoBehaviour
         isHurt = true;
         if (isInvulnerable)
             return;
-        myAnim.SetBool("Hurt", true);
+       
 
         health -= damage;
         // Cập nhật thanh máu UI
