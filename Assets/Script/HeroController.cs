@@ -1,7 +1,8 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 
 public class HeroController : MonoBehaviour
@@ -18,7 +19,7 @@ public class HeroController : MonoBehaviour
     //bo sung cac bien thuc hien hoat dong ban dan
     public Transform gunTip;
     public GameObject bullet;
-    float fireRate = 5f;
+    float fireRate = 2f;
     float nextFire = 1f;
 
     // Audio
@@ -26,14 +27,21 @@ public class HeroController : MonoBehaviour
     public AudioClip runSound;
     public AudioClip attackSound;
     private AudioSource audioSource;
-
     private bool isRunning = false;
-
-
+    public PlayerManaBar manaBar;
+    public int maxMana = 100;
+    public int mana =100;
+    public TMP_Text manaText;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerStats.Instance != null)
+        {
+            mana = PlayerStats.Instance.mana;
+            maxMana = PlayerStats.Instance.maxMana;
+        }
+
         myBody = GetComponent<Rigidbody2D>();
         myAnim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -43,6 +51,11 @@ public class HeroController : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>(); // tự thêm component
         }
         facingRight = true;
+
+        if (manaBar != null)
+            manaBar.SetMana(mana,maxMana);
+        if(manaText!=null)
+            manaText.text = $"{mana}/{maxMana}";
     }
 
     // Update is called once per frame
@@ -114,19 +127,22 @@ public class HeroController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if (Time.time > nextFire)
-            {
-                nextFire = Time.time + fireRate; //xac dinh tgian tiep thieo vien dan duoc ban ra
-                if (facingRight)
+            if (mana >= 20) {
+                if (Time.time > nextFire)
                 {
-                    //ban ra vien dan
-                    Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                }
-                else
-                {
-                    if (!facingRight)
+                    TakeMana(20);
+                    nextFire = Time.time + fireRate; //xac dinh tgian tiep thieo vien dan duoc ban ra
+                    if (facingRight)
                     {
-                        Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                        //ban ra vien dan
+                        Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                    }
+                    else
+                    {
+                        if (!facingRight)
+                        {
+                            Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                        }
                     }
                 }
             }
@@ -136,6 +152,16 @@ public class HeroController : MonoBehaviour
 
     }
 
+    public void TakeMana(int manatieuhao)
+    {
+        mana -= manatieuhao;
+        PlayerStats.Instance.mana = mana;
+        // 🔹 Cập nhật thanh mana
+        if (manaBar != null)
+            manaBar.SetMana(mana, maxMana);
+        if (manaText != null)
+            manaText.text = $"{mana}/{maxMana}";
+    }
     private void attack()
     {
         if (Input.GetKeyDown(KeyCode.J))

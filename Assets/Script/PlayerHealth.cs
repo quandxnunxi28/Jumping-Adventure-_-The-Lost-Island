@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,10 +18,12 @@ public class PlayerHealth : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     public float hurtFlashTime = 0.15f;
-
+    public TMP_Text healthText;
 
     private void Start()
     {
+
+        health = PlayerStats.Instance.health;
         myAnim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -29,16 +32,18 @@ public class PlayerHealth : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>(); // tự thêm component
         }
 
-        health = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (healthBar != null)
-            healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(health,maxHealth);
+        if (healthText != null)
+            healthText.text = $"{health}/{maxHealth}";
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+        PlayerStats.Instance.health = health;
         Debug.Log("Player Health: " + health);
         audioSource.clip = hurtSound;
         audioSource.Play();
@@ -48,7 +53,8 @@ public class PlayerHealth : MonoBehaviour
         // 🔹 Cập nhật thanh máu
         if (healthBar != null)
             healthBar.SetHealth(health, maxHealth);
-
+        if(healthText != null)
+         healthText.text = $"{health}/{maxHealth}";
         if (health <= 0)
         {
             Die();
@@ -74,8 +80,11 @@ public class PlayerHealth : MonoBehaviour
             Instantiate(deathEffect, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
-    
-    
+        PlayerStats.Instance.health=100;
+        PlayerStats.Instance.mana = 100;
+        PlayerStats.Instance.minAttackDamage = 15;
+        PlayerStats.Instance.maxAttackDamage = 25;
+
         Time.timeScale = 1f; // reset time
         //SceneManager.LoadScene("MainMenu"); // trỏ đúng tên scene
 

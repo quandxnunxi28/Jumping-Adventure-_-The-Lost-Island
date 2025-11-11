@@ -121,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.016524792, y: -0.02478671}
   serializedVersion: 2
-  m_Radius: 1.6
+  m_Radius: 0.7820554
 --- !u!114 &1646714911651395695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,5 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95c9ce944b73174db2f20f89eed8fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 10
+  healAmount: 20
+  manaAmount: 20
+  increaseDamage: 2
   pickupSound: {fileID: 8300000, guid: 59095fb9a91ef5d41baf39b373bc1533, type: 3}

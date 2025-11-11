@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166d68e13e8a6a143914b2fac2fbfd60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 40
+  speed: 15
+  damage: 50
   rb: {fileID: 1474897354}
   impactEffect: {fileID: 9049204369599093213, guid: 163000640443d9f438ae5c0b96a988a4, type: 3}
   kameSound: {fileID: 8300000, guid: c798bc1a53a9632489b0cf949ccc1770, type: 3}

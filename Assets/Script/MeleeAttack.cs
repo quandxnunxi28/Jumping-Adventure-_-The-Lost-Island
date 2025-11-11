@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
@@ -18,10 +19,18 @@ public class MeleeAttack : MonoBehaviour
     Animator anim;
     HeroController hero;               // để biết trái-phải
 
+    public TMP_Text atk_Text;
+
     void Start()
     {
+        if (PlayerStats.Instance != null)
+        {
+            minAttackDamage = PlayerStats.Instance.minAttackDamage;
+            maxAttackDamage = PlayerStats.Instance.maxAttackDamage;
+        }
         anim = GetComponent<Animator>();
         hero = GetComponent<HeroController>();
+        atk_Text.text = $"Atk Damage: {(minAttackDamage + maxAttackDamage) / 2}";
     }
 
     void Update()

@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BossZoneTrigger : MonoBehaviour
 {
     public BossHealthBar bossHealthBar;
 
     public bool bossTriggered = false;
+    public Vector3 position;
     public GameObject vungBoss;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,7 +20,7 @@ public class BossZoneTrigger : MonoBehaviour
             Debug.Log("Boss zone triggered!");
             if (vungBoss != null)
             {
-                Instantiate(vungBoss, new Vector3(118.3127f, -9.10671f, 0), Quaternion.identity);
+                Instantiate(vungBoss, position, Quaternion.identity);
             }
         }
 
