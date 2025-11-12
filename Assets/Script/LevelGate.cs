@@ -19,6 +19,17 @@ public class LevelGate : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
+            PlayerStats.Instance.health += 50;
+            PlayerStats.Instance.mana +=50;
+            if(PlayerStats.Instance.health >= PlayerStats.Instance.maxhealth)
+            {
+                PlayerStats.Instance.health = PlayerStats.Instance.maxhealth;
+            }
+            if (PlayerStats.Instance.mana >= PlayerStats.Instance.maxMana)
+            {
+                PlayerStats.Instance.mana = PlayerStats.Instance.maxMana;
+            }
             // Play sound cổng
             if (gateSound != null)
                 audioSource.PlayOneShot(gateSound);

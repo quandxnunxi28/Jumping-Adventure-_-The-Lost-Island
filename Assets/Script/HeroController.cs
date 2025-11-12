@@ -19,7 +19,7 @@ public class HeroController : MonoBehaviour
     //bo sung cac bien thuc hien hoat dong ban dan
     public Transform gunTip;
     public GameObject bullet;
-    float fireRate = 2f;
+    float fireRate = 1f;
     float nextFire = 1f;
 
     // Audio
@@ -127,10 +127,10 @@ public class HeroController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if (mana >= 20) {
+            if (mana >= 10) {
                 if (Time.time > nextFire)
                 {
-                    TakeMana(20);
+                    TakeMana(10);
                     nextFire = Time.time + fireRate; //xac dinh tgian tiep thieo vien dan duoc ban ra
                     if (facingRight)
                     {

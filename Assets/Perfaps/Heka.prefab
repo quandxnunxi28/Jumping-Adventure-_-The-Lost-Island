@@ -225,7 +225,7 @@ MonoBehaviour:
   attackRange: 0.5
   minAttackDamage: 15
   maxAttackDamage: 25
-  attackRate: 3
+  attackRate: 4
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64

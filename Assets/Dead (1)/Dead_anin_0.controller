@@ -39,7 +39,7 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1002721023932068876}
-    m_Position: {x: 290, y: -30, z: 0}
+    m_Position: {x: 310, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7797438048415793503}
     m_Position: {x: 570, y: 60, z: 0}
@@ -68,10 +68,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd81fd11540960a4ab8647469f84dd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 3
   attackRange: 3
-  positionBossMin: 81.87
-  positionBossMax: 119.05
+  positionBossMin: 153
+  positionBossMax: 225
 --- !u!1101 &-170475239846367820
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

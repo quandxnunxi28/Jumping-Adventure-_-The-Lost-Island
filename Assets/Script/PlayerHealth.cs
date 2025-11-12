@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-
         health = PlayerStats.Instance.health;
         myAnim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
