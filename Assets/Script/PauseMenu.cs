@@ -41,6 +41,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+        PlayerStats.Instance.health = 100;
+        PlayerStats.Instance.mana = 100;
+        PlayerStats.Instance.minAttackDamage = 15;
+        PlayerStats.Instance.maxAttackDamage = 25;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
