@@ -96,10 +96,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 180
-        height: 64
+        x: 53
+        y: 19
+        width: 28
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,10 +117,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 180
-        height: 64
+        x: 234
+        y: 19
+        width: 25
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,10 +138,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_2
       rect:
         serializedVersion: 2
-        x: 360
-        y: 0
-        width: 180
-        height: 64
+        x: 420
+        y: 19
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_3
       rect:
         serializedVersion: 2
-        x: 540
-        y: 0
-        width: 180
-        height: 64
+        x: 601
+        y: 19
+        width: 29
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +180,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_4
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 180
-        height: 64
+        x: 784
+        y: 19
+        width: 29
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_5
       rect:
         serializedVersion: 2
-        x: 900
-        y: 0
-        width: 180
-        height: 64
+        x: 983
+        y: 19
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +222,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_6
       rect:
         serializedVersion: 2
-        x: 1080
-        y: 0
-        width: 180
-        height: 64
+        x: 1178
+        y: 19
+        width: 25
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,10 +243,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_7
       rect:
         serializedVersion: 2
-        x: 1260
-        y: 0
-        width: 180
-        height: 64
+        x: 1373
+        y: 19
+        width: 25
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +264,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_8
       rect:
         serializedVersion: 2
-        x: 1440
-        y: 0
-        width: 180
-        height: 64
+        x: 1563
+        y: 19
+        width: 22
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_9
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 0
-        width: 180
-        height: 64
+        x: 1749
+        y: 19
+        width: 26
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,10 +306,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_10
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 0
-        width: 180
-        height: 64
+        x: 1933
+        y: 19
+        width: 25
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,10 +327,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_11
       rect:
         serializedVersion: 2
-        x: 1980
-        y: 0
-        width: 180
-        height: 64
+        x: 2114
+        y: 19
+        width: 29
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +348,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_12
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 0
-        width: 180
-        height: 64
+        x: 2295
+        y: 19
+        width: 27
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,10 +369,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_13
       rect:
         serializedVersion: 2
-        x: 2340
-        y: 0
-        width: 180
-        height: 64
+        x: 2474
+        y: 19
+        width: 28
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -390,10 +390,10 @@ TextureImporter:
       name: noBKG_KnightRoll_strip_14
       rect:
         serializedVersion: 2
-        x: 2520
-        y: 0
-        width: 180
-        height: 64
+        x: 2655
+        y: 19
+        width: 27
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

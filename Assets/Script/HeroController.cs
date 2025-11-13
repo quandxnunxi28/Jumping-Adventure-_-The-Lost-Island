@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
@@ -21,7 +22,8 @@ public class HeroController : MonoBehaviour
     public GameObject bullet;
     float fireRate = 1f;
     float nextFire = 1f;
-
+    private bool isRolling = false; // trạng thái đang roll
+    private bool canMove = true; // kiểm soát việc di chuyển
     // Audio
     public AudioClip jumpSound;
     public AudioClip runSound;
@@ -63,7 +65,7 @@ public class HeroController : MonoBehaviour
     {
 
         //di chuyển
-        float move = Input.GetAxis("Horizontal");
+        float move = canMove ? Input.GetAxis("Horizontal") : 0f;
         myBody.velocity = new Vector2(move * maxSpeed, myBody.velocity.y);
 
         if (move > 0 && !facingRight)
@@ -117,8 +119,9 @@ public class HeroController : MonoBehaviour
 
 
 
-        // tấn công 
 
+        // tấn công 
+        roll();
         attack();
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -170,6 +173,40 @@ public class HeroController : MonoBehaviour
             StartCoroutine(PlayJumpSoundWithDelay(0.3f));
                 audioSource.PlayOneShot(attackSound);
         }
+    }
+    private void roll()
+    {
+        if (Input.GetKeyDown(KeyCode.L) && !isRolling)
+        {
+            myAnim.SetTrigger("isRoll");
+            StartCoroutine(PerformRoll());
+        }
+    }
+
+    IEnumerator PerformRoll()
+    {
+        isRolling = true;
+        canMove = false; //Ngăn người chơi di chuyển khi roll
+        float rollSpeed = 21f; // tốc độ lăn
+        float rollDuration = 0.6f;  // thời gian khớp với animation
+        float elapsed = 0f;
+        // Xác định hướng
+        float direction = facingRight ? 1f : -1f;
+        // Trong lúc roll, disable input di chuyển (tùy chọn)
+        myAnim.SetBool("isRolling", true);
+        myAnim.SetFloat("Speed", 0); //  Dừng anim chạy (Speed = 0)
+        while (elapsed < rollDuration)
+        {
+            // Giữ y-velocity để không ảnh hưởng nhảy
+            myBody.velocity = new Vector2(direction * rollSpeed, myBody.velocity.y);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        // Dừng lại khi kết thúc roll
+        myBody.velocity = new Vector2(0, myBody.velocity.y);
+        myAnim.SetBool("isRolling", false);
+        isRolling = false;
+        canMove = true; //  Cho phép di chuyển lại
     }
 
     IEnumerator PlayJumpSoundWithDelay(float delay)
